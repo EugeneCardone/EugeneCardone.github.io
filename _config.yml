@@ -19,7 +19,7 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "index.md", title: Home}
   - {file: "README.md", title: Experiences}
   - {file: "blog.md", title: Blog}
-  - {file: "WOWNT_V_1.0EC.html", title: WOW Notation Tool}
+  - {title: WOW Notation Tool, url: "EugeneCardone.github.io/WOWNT_V_1.0EC.html"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
   - {title: EMail, icon: envelope, url: "mailto:eugene.jobs.cardone@gmail.com"}
