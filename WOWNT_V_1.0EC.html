@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<title> WOW Log </title>
+	<meta charset="utf-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<style>
+
+
+/* Whole page fontsize and lineheight set up */
+*{font-size:14px; line-height: 1.4;}
+
+/* grid layout 2 column system */
+.gridLayoutMain {
+	display: grid;
+	grid-column-gap: 50px;
+	grid-template-columns: auto auto;
+	align-content: center;
+}
+
+/* grid layout 2 column system */
+.gridLayoutModal {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-column-gap: 20px;
+	align-content: center;
+}
+
+
+.leftSideColumn {
+	margin-left: auto;
+}
+
+.rightSideColumn {
+	margin-right: auto;
+}
+
+/* Background gradient */
+body
+{
+  display: fixed;
+
+  background: linear-gradient(135deg, rgba(222,231,240,1) 0%,rgba(197,215,231,1) 17%,rgba(147,184,215,1) 50%,rgba(120,169,212,1) 51%,rgba(128,186,224,1) 59%,rgba(134,206,242,1) 71%,rgba(120,175,212,1) 84%,rgba(77,136,203,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-size: cover;
+
+}
+
+
+
+/* Navbar text and coloring */
+.RMNavBar{background-color: #e7342c;}
+
+.sub{color: #9623ff; font-size: 10px;}
+
+.RMNavBar .navbar-brand{color: Black; font-size: 23px;}
+
+.modalBG {background: linear-gradient(135deg, rgba(222,231,240,1) 0%,rgba(197,215,231,1) 17%,rgba(147,184,215,1) 50%,rgba(120,169,212,1) 51%,rgba(128,186,224,1) 59%,rgba(134,206,242,1) 71%,rgba(120,175,212,1) 84%,rgba(77,136,203,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background-size: cover;}
+/* end navbar */
+
+
+.modal-body{
+	background-color:#d1d7db;
+}
+
+.modalCenter{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.newCenter{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+
+/*  Select menu CSS from https://moderncss.dev/custom-select-styles-with-pure-css/  */
+select {
+  /* A reset of styles, including removing the default dropdown arrow */
+  appearance: none;
+  /* Additional resets for further consistency*/
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+	outline: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+:root {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+
+.select {
+  width: 100%;
+  min-width: 150px;
+  max-width: 250px;
+  border: 1px solid var(--select-border);
+	border-color: #202630;
+	border-width: 2px;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.125rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #eceae6;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
+
+	display: grid;
+	grid-template-areas: "select";
+	align-items: center;
+	position: relative;
+
+}
+
+.select::after {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--select-arrow);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+	justify-self: end;
+}
+
+select,
+.select:after {
+  grid-area: select;
+}
+
+select:focus + .focus {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid var(--select-focus);
+  border-radius: inherit;
+}
+
+
+
+/* Button styles */
+/* this removes the styles from the button */
+.button {
+
+  background-color: transparent;
+  font-family: inherit;
+  cursor: pointer;
+
+  color: #202630;
+  border-radius: 3px;
+	border-color: #202630;
+	border-width: 2px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+
+	padding: 0.15em 0.5em;
+  /*min-width: 10ch;*/
+  min-height: 3ch;
+
+	text-align: center;
+  line-height: 1.1;
+	margin-bottom: 5px;
+
+	transition: 220ms all ease-in-out;
+
+}
+
+/* on hover change the hue lighter */
+.button:hover,
+.button:active{
+	color: #000000;
+	border-color: #000000;
+	outline-style: solid;
+	outline-color: transparent;
+	filter: brightness(60%);
+}
+
+
+
+/*
+
+---------------Starting textarea Material style--------------
+
+*/
+
+.materialStyleMainTextarea {
+  display: flex;
+	flex-direction: column-reverse;
+	padding-top: 5px;
+	min-width: 300px;
+	max-width: 300px;
+	max-height: 500px;
+}
+
+.materialStyleTextarea{
+	border-radius: 4px;
+	min-height: 50px;
+	height: 100px;
+	min-width: 300px;
+	max-width: 300px;
+
+	background-color: #eceae6;
+  color: #202630;
+	border-color: #202630;
+	border-width: 2px;
+
+}
+
+.materialStyleMainTextarea>label {
+	top: 25px;
+	left: 15px;
+	position: relative;
+	background-color: transparent;
+	padding: 0px 5px 0px 5px;
+	font-size: 1.1rem;
+	transition: 0.2s;
+	pointer-events: none;
+	margin-bottom: 1px;
+}
+
+.materialStyleMainTextarea>button {
+	top: 20px;
+	position: relative;
+	margin-left: auto;
+	margin-right: 70px;
+}
+
+textarea:focus + label {
+		top: -8px;
+		font-weight:600;
+}
+
+textarea:valid + label {
+		top: -8px;
+		font-weight:600;
+}
+
+
+/*
+		------------Starting material input styling-------------------
+*/
+
+.materialStyleMainInput{
+  display: flex;
+	flex-direction: column-reverse;
+	padding-top: 5px;
+}
+
+.materialStyleInput{
+	border-radius: 4px;
+	height: 30px;
+	min-width: 300px;
+	max-width: 300px;
+
+	background-color: #eceae6;
+  color: #202630;
+	border-color: #202630;
+	border-width: 2px;
+}
+
+.materialStyleMainInput>label {
+	top: 25px;
+	left: 15px;
+	position: relative;
+	background-color: transparent;
+	padding: 0px 5px 0px 5px;
+	font-size: 1rem;
+	transition: 0.2s;
+	pointer-events: none;
+	margin-bottom: 1px;
+}
+
+input:focus + label {
+		top: 0px;
+		font-weight:600;
+}
+
+input:valid + label {
+		top: 0px;
+		font-weight:600;
+}
+
+
+</style>
+
+
+
+
+<nav class="navbar RMNavBar navbar-expand-lg navbar-light">
+
+	<div class="navbar-brand">WOW Notation Tool</div>
+
+	<div class="sub mr-auto">V1.0 EC</div>
+
+
+	<!-- Settings button -->
+	<button class="navbar-toggler" data-toggle="modal" data-target="#userInformationModal">
+		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+		  <path fill-rule="evenodd" d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
+	  	<path fill-rule="evenodd" d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
+		</svg>
+	</button>&nbsp
+
+
+
+	<!-- Hamburger button -->
+	<button class="navbar-toggler" data-toggle="collapse" data-target="#RMNavBar">
+			<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="RMNavBar">
+	<ul class="navbar-nav ml-auto">
+
+		<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#deploymentsModal">Disaster Tracking</a></li>
+		<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#covidCallHandling">Covid Handling</a></li>
+		<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#snipetModal">Snipet Tool</a></li>
+		<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#emailTemplatesModal">Email Temlates</a></li>
+		<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#userInformationModal">User Settings</a></li>
+
+
+	</ul>
+	</div>
+</nav>
+
+
+
+
+
+
+<body onload="loadValues();">
+<div class="gridLayoutMain">
+	<div class="leftSideColumn newCenter">
+
+		<!-- Starting Customer information section-->
+		<br>
+		<div class="materialStyleMainInput">
+			<input type="text" id="customerNameIn" class="materialStyleInput" required>
+			<label for="customerNameIn">Customer Name:</label>
+		</div>
+
+		<div class="materialStyleMainInput">
+			<input type="text" id="customerPhoneIn" class="materialStyleInput" required>
+			<label for="customerPhoneIn">Customer Phone #:</label>
+		</div>
+
+
+		<!-- Starting Job information section-->
+		<br>
+		<div class="materialStyleMainInput">
+			<input type="text" id="customerReferenceIn" class="materialStyleInput" required>
+			<label for="customerReferenceIn">Customer Reference:</label>
+		</div>
+
+		<div class="materialStyleMainInput">
+			<input type="text" id="serviceJobIdIn" class="materialStyleInput" required>
+			<label for="serviceJobIdIn">Service Job Id:</label>
+		</div>
+
+
+		<!-- Starting main note inputs-->
+		<br>
+		<div class="materialStyleMainTextarea">
+			<textarea id="customerTextareaIn" class="materialStyleTextarea" style="height: 115px;" onkeyup="replaceForInputTextarea(); + compileNotes();" required></textarea>
+			<label for="customerTextareaIn">Escalation notes/Customer updated: </label>
+		</div>
+
+		<br>
+		<div class="materialStyleMainTextarea">
+			<textarea id="agentTextareaIn" class="materialStyleTextarea" style="height: 150px;" onkeyup="replaceForInputTextarea(); + compileNotes();" required></textarea>
+			<label for="agentTextareaIn">Agent Notes:</label>
+		</div>
+
+		<!-- Starting action buttons-->
+		<br>
+		<button type="button" id="compileNotes" class="button" onclick="compileNotes(); + saveConstants();">Compile Notes</button>
+
+
+		<!-- These breaks are for background spacing-->
+		<br><br><br>
+		<br><br><br>
+
+	<!-- Ending div for leftSideColumn -->
+	</div>
+
+
+
+
+
+	<div class="rightSideColumn newCenter">
+
+		<div class="materialStyleMainTextarea">
+			<textarea id="sbTextareaOutput" class="materialStyleTextarea" style="height: 150px;" onkeyup="replaceForInputTextarea(); + compileNotes();"></textarea>
+			<label for="sbTextareaOutput">ServiceBench Notes:</label>
+			<button type="button" id="copyForSBTextareaOutput" class="button" onclick="sbTextareaOutputCopy();">Copy</button>
+		</div>
+
+
+		<div class="materialStyleMainTextarea">
+			<textarea id="ensuraTextareaOutput" class="materialStyleTextarea" style="height: 150px;" onkeyup="replaceForInputTextarea(); + compileNotes();"></textarea>
+			<label for="ensuraTextareaOutput">Ensura Notes: </label>
+			<button type="button" id="copyForEnsuraTextareaOutput" class="button" style="margin-right: 120px;" onclick="ensuraTextareaOutputCopy();">Copy</button>
+		</div>
+
+
+		<div class="materialStyleMainTextarea">
+			<textarea id="knackTextareaOutput" class="materialStyleTextarea" style="height: 150px;" onkeyup="replaceForInputTextarea(); + compileNotes();"></textarea>
+			<label for="knackTextareaOutput"> Knack Notes: </label>
+			<button type="button" id="copyForKnackTextareaOutput" class="button" style="margin-right: 120px;" onclick="knackTextareaOutputCopy();">Copy</button><br>
+		</div>
+
+		<br><br><br>
+		<br><br><br>
+		<br><br><br>
+
+
+
+
+	<!-- Ending div for rightSideColumn -->
+	</div>
+
+
+<!-- JavaScript For Compiling notes and text related functions-->
+<script type="text/javascript">
+
+
+//Getting date and time information
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1;
+var yyyy = today.getFullYear();
+
+var hour = today.getHours();
+var minute = today.getMinutes();
+
+if(dd<10){
+	dd='0'+dd;
+}
+
+if(hour>12){
+	hour = hour - 12;
+}
+
+if(mm<10){
+	mm='0'+ mm;
+}
+
+if(minute<10){
+	minute = '0' + minute;
+}
+
+//Converting recieved dates and times to correct format
+var dateStamp = (mm + "/" + dd);
+var fullDateStamp = (mm + "/" + dd + "/" + yyyy);
+
+
+
+
+
+
+//Compile notes functions
+function compileNotes(){
+
+	//Combining notes format and typed input
+	var customerTextareaInFormated = "Escalation notes/Customer updated: " + customerTextareaIn.value + "\n \n";
+
+	if (customerTextareaIn.value == ""){
+		customerTextareaInFormated = customerTextareaIn.value;
+	}
+
+	var agentTextareaInFormated = "My Notes: " + agentTextareaIn.value;
+
+	var serviceJobIdInFormated = "Job ID: " + serviceJobIdIn.value + "\n";
+
+
+	//Service bench notes
+	sbTextareaOutput.innerHTML = (agentIdIn.value + " " + dateStamp + "\n" + customerTextareaInFormated + agentTextareaInFormated);
+
+	//Ensura notes
+	ensuraTextareaOutput.innerHTML = (agentIdIn.value + " " + dateStamp + "\n" + serviceJobIdInFormated + customerTextareaInFormated + agentTextareaInFormated);
+
+	//Knack notes
+	knackTextareaOutput.innerHTML = (agentIdIn.value + " " + dateStamp + "\n" + serviceJobIdInFormated + customerTextareaInFormated + agentTextareaInFormated);
+
+	//What this over complicated junk does, has to be here to work on keyup
+	//first variable searchs for a global and anycase match to customer name inputs
+	//it then using the .match event changes that to seperate initals
+	//then it uses the .join event to combine them together with no spaces and changes to uppercase
+	var customerNameInKnackReplace = new RegExp(customerNameIn.value,'gi');
+	var changeCustomerInitials = customerNameIn.value.match(/\b(\w)/g);
+	var changeCustomerInitialsJoined = changeCustomerInitials.join('').toUpperCase();
+	knackTextareaOutput.innerHTML = knackTextareaOutput.innerHTML.replace(customerNameInKnackReplace, changeCustomerInitialsJoined);
+
+}
+
+
+
+// replace functions for customer new information field
+function replaceForInputTextarea() {
+
+
+	//searches selected input value or word and then edits that value by replaceing the word selected (customer)
+	//with the set output value(customerNameInReplaceOutput) this can be specific words or variables/value
+	var customerPhoneInReplace = new RegExp("/phone",'gi');
+	var customerNameInReplace = new RegExp("customer",'gi');
+	var callCustomerInReplace = new RegExp("/call",'gi');
+	var callCustomerInReplaceOutput = ("Calling customer Phone #: /phone");
+
+	var contactInfoReplace = new RegExp("/contact",'gi');
+	var contactReplaceOutput = 'Gave phone# for Wow team 1-833-334-1877 and my phone#/ext: ' + agentPhoneNumberIn.value;
+
+	//outputs have to be grouped together or it will not run the vars to set up the replace
+
+	customerTextareaIn.value = customerTextareaIn.value.replace(customerPhoneInReplace, customerPhoneIn.value);
+	customerTextareaIn.value = customerTextareaIn.value.replace(customerNameInReplace, customerNameIn.value);
+	customerTextareaIn.value = customerTextareaIn.value.replace(callCustomerInReplace, callCustomerInReplaceOutput);
+
+	customerTextareaIn.value = customerTextareaIn.value.replace(contactInfoReplace, contactReplaceOutput);
+
+
+	//Duplicate replaces for second text area
+
+	agentTextareaIn.value = agentTextareaIn.value.replace(customerPhoneInReplace, customerPhoneIn.value);
+	agentTextareaIn.value = agentTextareaIn.value.replace(customerNameInReplace, customerNameIn.value);
+	agentTextareaIn.value = agentTextareaIn.value.replace(callCustomerInReplace, callCustomerInReplaceOutput);
+
+	agentTextareaIn.value = agentTextareaIn.value.replace(contactInfoReplace, contactReplaceOutput);
+
+
+	snipetModalFunction();
+}
+
+
+
+
+//copy functions for all 3 textAreaStyle
+function sbTextareaOutputCopy(){
+	sbTextareaOutput.select();
+	document.execCommand("copy");
+}
+
+function ensuraTextareaOutputCopy(){
+	ensuraTextareaOutput.select();
+	document.execCommand("copy");
+}
+
+function knackTextareaOutputCopy(){
+	knackTextareaOutput.select();
+	document.execCommand("copy");
+}
+
+
+
+//Load Constants
+function loadValues(){
+
+	agentIdIn.value = localStorage.getItem('savedAgentIdIn');
+	agentPhoneNumberIn.value = localStorage.getItem('savedAgentPhoneIn');
+
+	//Setting up saving for settings profile
+	//sup info
+	userInformationSupName.value = localStorage.getItem('savedUserInformationSupName');
+	userInformationSupEmail.value = localStorage.getItem('savedUserInformationSupEmail');
+	//TL info
+	userInformationTLName.value = localStorage.getItem('savedUserInformationTLName');
+	userInformationTLEmail.value = localStorage.getItem('savedUserInformationTLEmail');
+
+	loadSnipetValuesFunction();
+	loadSnipetDisplayFunction();
+}
+
+function saveConstants(){
+
+	localStorage.setItem('savedAgentIdIn', agentIdIn.value);
+	localStorage.setItem('savedAgentPhoneIn', agentPhoneNumberIn.value);
+
+	//Setting up saving for settings profile
+	//Sup info
+	localStorage.setItem('savedUserInformationSupName', userInformationSupName.value);
+	localStorage.setItem('savedUserInformationSupEmail', userInformationSupEmail.value);
+	//TL info
+	localStorage.setItem('savedUserInformationTLName', userInformationTLName.value);
+	localStorage.setItem('savedUserInformationTLEmail', userInformationTLEmail.value);
+
+	saveSnipetValuesFunction();
+}
+
+// this is for my modal to be called on key up when typing /comdata $("#myModal").modal();
+
+
+</script>
+<!-- End JavaScript -->
+
+<!-- Ending div for gridLayoutMain -->
+</div>
+</body>
+
+
+
+
+<!-- UserInformation Modal -->
+<div class="modal fade" id="userInformationModal" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+<div class="modal-content">
+
+			<div class="modal-header modalBG">
+
+        <h5 class="modal-title" id="staticBackdropLabel">Wow NT Settings </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>   <!-- closing the header div for modal -->
+
+
+
+      <div class="modal-body">
+			<div class="modalCenter">
+
+
+
+
+						<br>
+						<div class="materialStyleMainInput">
+							<input type="text" id="agentIdIn" class="materialStyleInput" onkeyup="saveConstants();" required>
+							<label for="agentIdIn">Agent Id:</label>
+						</div>
+
+						<div class="materialStyleMainInput">
+							<input type="text" id="agentPhoneNumberIn" class="materialStyleInput" onkeyup="saveConstants();" required>
+							<label for="agentPhoneNumberIn">Agent Phone#/Ext:</label>
+						</div>
+
+
+
+						<br><br>
+						<div class="materialStyleMainInput">
+							<input type="text" id="userInformationSupName" class="materialStyleInput" onkeyup="saveConstants();" required>
+							<label for="userInformationSupName">Supervisor Name:</label>
+						</div>
+
+						<div class="materialStyleMainInput">
+							<input type="text" id="userInformationSupEmail" class="materialStyleInput" onkeyup="saveConstants();" required>
+							<label for="userInformationSupEmail">Supervisor Email:</label>
+						</div>
+
+						<br>
+						<div class="materialStyleMainInput">
+							<input type="text" id="userInformationTLName" class="materialStyleInput" onkeyup="saveConstants();" required>
+							<label for="userInformationTLName">TeamLead Name:</label>
+						</div>
+
+						<div class="materialStyleMainInput">
+							<input type="text" id="userInformationTLEmail" class="materialStyleInput" onkeyup="saveConstants();" required>
+							<label for="userInformationTLEmail">TeamLead Email:</label>
+						</div>
+
+
+			</div>
+      </div>   <!-- closing the body div for modal -->
+
+
+
+      <div class="modal-footer modalBG">
+
+        <button type="button" class="button" data-dismiss="modal">Close</button>
+
+      </div> <!-- closing the footer div for modal -->
+
+</div>
+</div>
+</div>
+
+<!-- JavaScript For Settings Modal-->
+<script type="text/javascript">
+
+
+
+</script>
+<!-- End JavaScript -->
+
+
+
+
+
+<!-- *************************************  Starting Covid Information Modal And JS *********************************************************** -->
+
+<!-- Covid Modal -->
+<div class="modal fade" id="covidCallHandling" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+<div class="modal-content">
+
+			<div class="modal-header modalBG">
+
+        <h5 class="modal-title" id="staticBackdropLabel">Covid Call Handling </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>   <!-- closing the header div for modal -->
+
+
+
+      <div class="modal-body">
+			<div class="modalCenter">
+
+						<div style="text-align: left;">
+
+							<u><h5>Covid Script: </h5></u> "Thank you for calling the Emergency Response Team, you have reached (your name), You Chose Call prompt 1 indicating your or someone in your home have been exposed to the Corona Virus. In order to help and assist you, i need to ask you some additional questions regarding your exposure."
+							<br><br>							Or							<br><br>														"Thank you for calling the Emergency Response Team At HomeServe, This is (Name), Have you or anyone in the home tested positive or been diagnosed with the Corona Virus in the last 14 days?"							<br><br>
+
+							At this point if the customer is saying that they have accidently pressed this prompt or not been exposed get them over to the correct department for their issue. Other wise ask the triage questions and open the covid tracker
+							<br><br>
+
+							<a href="https://serveusa.sharepoint.com/sites/RepairManagementLearningCenter/Lists/Coronavirus%20Tracker/AllItems.aspx" target="_blank"> Link To Covid Tracker</a>
+							<br><br>
+
+							<u><h5>Triage questions are as follows:</h5></u>
+							<ul>
+								<li>Have you or anyone in your home been tested or diagnosed with Coronavirus in the last 14 days?</li>
+								<li>Are you or anyone in the household experiencing Coronavirus symptoms?</li>
+								<li>Have you been in contact with anyone in the last 14 days who has had a confirmed cas of Coronavirus?</li>
+								<li>Is anyone in the home quarantined due to Coronavirus?</li>
+							</ul>
+
+							<u><h5>Once Tracker is Filled Out</h5></u>
+							"I have documented your repair needs and i am going to send your case on to my executive review team we will get back to you shortly, but no later than one business day"
+							<br><br>
+
+							<u><h5>Remember if the job is Energy Services the only options you can offer:</h5></u>
+							<ol type="1">
+								<li>Deploy job 14 days from the time of call</li>
+								<li>Offer reimbursement if they get their own contractor</li>
+							</ol>
+
+						</div>
+
+			</div>
+      </div>   <!-- closing the body div for modal -->
+
+
+
+      <div class="modal-footer modalBG">
+
+					<button type="button" class="button" data-dismiss="modal">Close</button>
+
+      </div> <!-- closing the footer div for modal -->
+
+</div>
+</div>
+</div>
+
+<!-- JavaScript For Deployments Modal-->
+<script type="text/javascript">
+
+
+
+</script>
+<!-- End JavaScript -->
+
+
+
+
+
+
+<!-- *************************************  Starting Deployments Modal And JS *********************************************************** -->
+
+<!-- Deployments Modal -->
+<div class="modal fade" id="deploymentsModal" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+<div class="modal-content">
+
+			<div class="modal-header modalBG">
+
+        <h5 class="modal-title" id="staticBackdropLabel">Disaster Tracker </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>   <!-- closing the header div for modal -->
+
+
+
+      <div class="modal-body">
+			<div class="modalCenter">
+			<div style="text-align: left;">			<u><h5>Hurricane Process: </h5></u>			<ul>				<li>Confirm Customer is calling from, <b>Arkansas(AK), Alabama(AL), Florida(FL), Louisiana(LA), Mississippi(MS), Tennessee(TN), and Texas(TX)</b></li>				<li>Confirm that they are calling about a issue related to Current Disaster</li>				<li>Find and read T&Cs related to exclusion on that contractor Usually #1</li>				<li>Offer Hurricane Scripting below; to see customer will accept us sending contractor </li>											</ul>							<br><u><h5>Exterior Electic and Partner Goodwills: </h5></u>			<ul>				<li>If this is a Exterior Electric Job for one of the below partners we would cover EE jobs as a goodwill</li>				<li>AEP: Appalachian Power, AEP Ohio,Center Point, Indiana & Michigan Power, PSO, SWEPCO, Kentucky Power</li>				<li>First Engergy</li>					<li>PSEG</li>			</ul>			<br><u><h5>Customer accepts goodwill/Deploy of job: </h5></u>			<ul>				<li>Document: This is a Hurricane Laura impacted customer and the customer is responsible for payment to the contractor, NOT COVERED UNDER T&C’S. </li>				<li>Complete the emergency triage and document in work order</li>					<ol>						<li>Do you currently have electricity/Gas going to the home?</li>						<li>Are local/state/federal authorities allowing non-residents into the area? </li>						<li>Can a contractor who is traveling from another part of town gain access to the home? (Bridges, causeways, roadways accessible to the home?)</li>					</ol>				<br>				<li>Set up job using service code <B>“GOODWILL DISASTER RECOVERY”</B> – service call / diagnosis only.</li><br>				Or								<br><br><li>Set up job using service code <B>“GOODWILL PARTNER EXCEPTIONS”</B> – service call / diagnosis only.</li>				<li>Create job in SAS/Service bench,Update Knack Disaster Tracker (CMS note note required unless NCE)</li>				<li>Call each contractor to see if they can accept the job and see if we can get a expected service date</li>							</ul>			<br><u><h5>Customer Declines goodwill/Deploy of job: </h5></u>			<ul>				<li>Document an NCE in SAS per the SOP for any customer claim that is not covered under the contract. </li>				<li>Update Knack Disaster Trackerk and close</li>			</ul>			<br>			<u><h5>Hurricane Scripting: </h5></u> "I am sorry to hear that you were affected by Hurricane Ida.  While the damage to your _______________(exterior electric, internal plumbing, external sewer, etc.) is not covered under your contract, we would like to extend the use of our network contractors for you to consider in completing repairs to your home.  It is your right to choose a contractor of your choice.  Should you choose to work with one of our network contractors; you can enter into an agreement with the service provider and pay them directly for the work performed.  We would like to monitor the progress of the job to ensure our contractor meets your expectations"									</div>
+
+
+			</div>
+      </div>   <!-- closing the body div for modal -->
+
+
+
+      <div class="modal-footer modalBG">
+
+					<button type="button" class="button" data-dismiss="modal">Close</button>
+
+      </div> <!-- closing the footer div for modal -->
+
+</div>
+</div>
+</div>
+
+<!-- JavaScript For Deployments Modal-->
+<script type="text/javascript">
+
+
+
+</script>
+<!-- End JavaScript -->
+
+
+
+
+
+<!-- *************************************  Starting Email Templates Modal And JS *********************************************************** -->
+
+<!-- Email template Modal -->
+<div class="modal fade" id="emailTemplatesModal" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+<div class="modal-content">
+
+			<div class="modal-header modalBG">
+
+        <h5 class="modal-title" id="staticBackdropLabel">Email Templates </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>   <!-- closing the header div for modal -->
+
+
+
+      <div class="modal-body">
+			<div class="modalCenter">
+
+						<div class="select">
+							<select id="emailTemplateSelection" class="" onmouseout="emailTemplateSelectionFunction();">
+								<option>Select Email Type</option>
+								<option>ROM / TS Email</option>
+								<option>Reimbursement/Goodwill Template</option>
+							</select>
+						</div>
+
+						<br>
+						<hr style="height:2px;border-width:0;color:black;background-color:black;width:90%;">
+
+
+<!--  ROM template start ------------------------------------------->
+
+
+						<div id="romTsEmailDiv" style="display: none;">
+						<div class="newCenter">
+
+							<br>
+							<div class="select">
+								<select id="reviewRequestSelection" onmouseout="reviewRequestSelectionFunction();">
+									<option>Resquest Type</option>
+									<option>Need Assistance</option>
+									<option>Follow up</option>
+									<option>New Cost Submitted</option>
+								</select>
+							</div>
+
+
+							<br>
+							<div class="materialStyleMainInput">
+								<input type="text" id="customerNameRomTsEmailIn" class="materialStyleInput" required>
+								<label for="customerNameRomTsEmailIn">Customer Name: </label>
+							</div>
+
+
+							<div class="materialStyleMainInput">
+								<input type="text" id="contractorNameRomTsEmailIn" class="materialStyleInput" required>
+								<label for="contractorNameRomTsEmailIn">Contractor Name: </label>
+							</div>
+
+
+							<div class="materialStyleMainInput">
+								<input type="text" id="serviceJobRomTsEmailIn" class="materialStyleInput" required>
+								<label for="serviceJobRomTsEmailIn">Service Job Id:</label>
+							</div>
+
+
+							<br><br>
+							<div class="select">
+								<select id="stateZipRomTsEmailSelection" onmouseout="stateZipRomTsEmailSelectionFunction();">
+									<option>Please select a state</option><option>Alabama(AL)</option> <option>Alaska(AK)</option><option>Arizona(AZ)</option>
+									<option>Arkansas(AR)</option><option>California(CA)</option><option>Colorado(CO)</option><option>Connecticut(CT)</option>
+									<option>Delaware(DE)</option><option>District Of Columbia(DC)</option><option>Florida(FL)</option><option>Georgia(GA)</option><option>Hawaii(HI)</option><option>Idaho(ID)</option><option>Illinois(IL)</option><option>Indiana(IN)</option><option>Iowa(IA)</option><option>Kansas(KS)</option><option>Kentucky(KY)</option>
+									<option>Louisiana(LA)</option><option>Maine(ME)</option><option>Maryland(MD)</option><option>Massachusetts(MA)</option>
+									<option>Michigan(MI)</option><option>Minnesota(MN)</option><option>Mississippi(MS)</option><option>Missouri(MO)</option>
+									<option>Montana(MT)</option><option>Nebraska(NE)</option><option>Nevada(NV)</option><option>New Hampshire(NH)</option>
+									<option>New Jersey(NJ)</option><option>New Mexico(NM)</option><option>New York(NY)</option><option>North Carolina(NC)</option>
+									<option>North Dakota(ND)</option><option>Ohio(OH)</option><option>Oklahoma(OK)</option><option>Oregan(OR)</option>
+									<option>Pennsylvania(PA)</option><option>Rhode Island(RI)</option><option>South Carolina(SC)</option><option>South Dakota(SD)</option>
+									<option>Tennessee(TN)</option><option>Texas(TX)</option><option>Utah(UT)</option><option>Vermont(VT)</option><option>Virginia(VA)</option>
+									<option>Washington(WA)</option><option>West Virginia(WV)</option><option>Wisconsin(WI)</option><option>Wyoming(WY)</option>
+									<option>Ontario(Canada)</option><option>Alberta(Canada)</option>
+								</select>
+							</div>
+
+							<br>
+							<div class="materialStyleMainInput">
+								<input type="text" id="zipcodeRomTsEmailIn" class="materialStyleInput" required>
+								<label for="zipcodeRomTsEmailIn">Zip Code:</label>
+							</div>
+
+
+							<br><br>
+							<div class="materialStyleMainTextarea">
+								<textarea id="emailIssueRomTsTextarea" class="materialStyleTextarea" style="height: 150px;" required></textarea>
+								<label for="emailIssueRomTsTextarea">Issue Description:</label>
+							</div>
+
+
+
+							<br>
+							<div class="gridLayoutModal">
+
+								<div>
+									<label for="includeROMSelection" class="labelMain">Do you want to include the ROM?</label>
+									<br><br>
+									<div class="select" style="width:150px;">
+										<select id="includeROMSelection">
+											<option>Neither</option>
+											<option>CC ROM</option>
+											<option>TO ROM</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="rightSideColumn">
+									<label for="includeWowSupTlSelection" class="labelMain">Do you want to CC RMWOW <br> Team Lead and Supervisor? </label>
+									<div class="select" style="width:150px;">
+										<select id="includeWowSupTlSelection">
+											<option>No</option>
+											<option>Yes</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+
+							<br>
+							<button id="compileRomTsEmail" class="button" onclick="compileRomTsEmailFunction();">Compile Email</button>
+							<br><br>
+							<a download="RomAndTSEmailTemplate.eml" id="RomAndTSEmailTemplate" style="display: none;">Rom and TS Email Template</a>
+
+							<br><br>
+							<textarea id="emailOutputRomTsTextarea" rows="8" cols="45" class="materialStyleTextarea" style="display: none;"></textarea>
+
+						</div>
+						</div>
+
+
+<!--  Reimbursement template start ------------------------------------------->
+
+
+						<div id="reimbursementEmailDiv" style="display: none;">
+						<div class="newCenter">
+
+							<br>
+							<div class="materialStyleMainInput">
+								<input type="text" id="serviceJobReimbursementIn" class="materialStyleInput" required>
+								<label for="serviceJobReimbursementIn">Service Job Id:</label>
+							</div>
+
+							<div class="materialStyleMainInput">
+								<input type="text" id="customerPhoneReimbursementIn" class="materialStyleInput" required>
+								<label for="customerPhoneReimbursementIn">Customer Phone #:</label>
+							</div>
+
+							<br>
+							<label for="reimbursementGoodwillSelection">Is this a Reimbursement or Goodwill?</label>
+							<div class="select">
+								<select id="reimbursementGoodwillSelection">
+									<option>Reimbursement</option>
+									<option>Goodwill</option>
+								</select>
+							</div>
+
+
+							<br>
+							<div class="materialStyleMainInput">
+								<input type="text" id="reasonRequestedReimbursementIn" class="materialStyleInput" required>
+								<label for="reasonRequestedReimbursementIn">Reason for Request:</label>
+							</div>
+
+							<div class="materialStyleMainInput">
+								<input type="text" id="requestedAmountReimbursementIn" class="materialStyleInput" required>
+								<label for="requestedAmountReimbursementIn">Requested Amount:</label>
+							</div>
+
+							<div class="materialStyleMainInput">
+								<input type="text" id="approvedAmountReimbursementIn" class="materialStyleInput" required>
+								<label for="approvedAmountReimbursementIn">Approved Amount:</label>
+							</div>
+
+
+							<br><br>
+							<div class="materialStyleMainInput">
+								<input type="text" id="customerNameReimbursementIn" class="materialStyleInput" required>
+								<label for="customerNameReimbursementIn">Customer Name:</label>
+							</div>
+
+							<div class="materialStyleMainInput">
+								<input type="text" id="customerAddressReimbursementIn" class="materialStyleInput" required>
+								<label for="customerAddressReimbursementIn">Mailing Address:</label>
+							</div>
+
+							<div class="materialStyleMainInput">
+								<input type="text" id="contractNumberReimbursementIn" class="materialStyleInput" required>
+								<label for="contractNumberReimbursementIn">Contract Number:</label>
+							</div>
+
+
+							<br><br>
+							<div class="materialStyleMainInput">
+								<input type="text" id="partnerReimbursementIn" class="materialStyleInput" required>
+								<label for="partnerReimbursementIn">Partner:</label>
+							</div>
+
+							<div class="materialStyleMainInput">
+								<input type="text" id="productReimbursementIn" class="materialStyleInput" required>
+								<label for="productReimbursementIn">Product:</label>
+							</div>
+
+							<br><br>
+							<div class="select">
+								<select id="stateReimbursementSelection" onmouseout="stateReimbursementSelectionFunction();">
+									<option>Please select a state</option><option>Alabama(AL)</option> <option>Alaska(AK)</option><option>Arizona(AZ)</option>
+									<option>Arkansas(AR)</option><option>California(CA)</option><option>Colorado(CO)</option><option>Connecticut(CT)</option>
+									<option>Delaware(DE)</option><option>District Of Columbia(DC)</option><option>Florida(FL)</option><option>Georgia(GA)</option><option>Hawaii(HI)</option><option>Idaho(ID)</option><option>Illinois(IL)</option><option>Indiana(IN)</option><option>Iowa(IA)</option><option>Kansas(KS)</option><option>Kentucky(KY)</option>
+									<option>Louisiana(LA)</option><option>Maine(ME)</option><option>Maryland(MD)</option><option>Massachusetts(MA)</option>
+									<option>Michigan(MI)</option><option>Minnesota(MN)</option><option>Mississippi(MS)</option><option>Missouri(MO)</option>
+									<option>Montana(MT)</option><option>Nebraska(NE)</option><option>Nevada(NV)</option><option>New Hampshire(NH)</option>
+									<option>New Jersey(NJ)</option><option>New Mexico(NM)</option><option>New York(NY)</option><option>North Carolina(NC)</option>
+									<option>North Dakota(ND)</option><option>Ohio(OH)</option><option>Oklahoma(OK)</option><option>Oregan(OR)</option>
+									<option>Pennsylvania(PA)</option><option>Rhode Island(RI)</option><option>South Carolina(SC)</option><option>South Dakota(SD)</option>
+									<option>Tennessee(TN)</option><option>Texas(TX)</option><option>Utah(UT)</option><option>Vermont(VT)</option><option>Virginia(VA)</option>
+									<option>Washington(WA)</option><option>West Virginia(WV)</option><option>Wisconsin(WI)</option><option>Wyoming(WY)</option>
+									<option>Ontario(Canada)</option><option>Alberta(Canada)</option>
+								</select>
+							</div>
+
+
+							<br>
+							<div class="materialStyleMainInput">
+								<input type="text" id="romTerritoryReimbursement" class="materialStyleInput" required>
+								<label for="romTerritoryReimbursement">ROM Territory:</label>
+							</div>
+
+
+							<br><br>
+							<div class="materialStyleMainInput">
+								<input type="text" id="repairDateReimbursement" class="materialStyleInput" required>
+								<label for="repairDateReimbursement">Date or Repair:</label>
+							</div>
+
+							<div class="materialStyleMainInput">
+								<input type="text" id="todaysDateReimbursement" class="materialStyleInput" required>
+								<label for="todaysDateReimbursement">Date of Reimbursement Request:</label>
+							</div>
+
+
+							<br><br>
+							<label for="shippingTypeSelection">Shipping Method Requested?</label>
+							<div class="select">
+								<select id="shippingTypeSelection">
+									<option>US Mail</option>
+									<option>FEDEX</option>
+								</select>
+							</div>
+
+
+							<br><br>
+							<div class="gridLayoutModal">
+
+								<div class="leftSideColumn">
+									<label for="includeROMReimbursementSelection" class="labelMain">Do you want to include the ROM?</label>
+									<br><br>
+									<div class="select" style="width:150px;">
+										<select id="includeROMReimbursementSelection">
+											<option>Neither</option>
+											<option>CC ROM</option>
+											<option>TO ROM</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="rightSideColumn">
+									<label for="includeWowSupTlReimbursementSelection" class="labelMain">Do you want to CC RMWOW <br> Team Lead and Supervisor? </label>
+									<div class="select" style="width:150px;">
+										<select id="includeWowSupTlReimbursementSelection">
+											<option>No</option>
+											<option>Yes</option>
+										</select>
+									</div>
+								</div>
+
+							</div>
+
+
+							<br><br>
+							<button id="compileReimbursementEmail" class="button" onclick="compileReimbursementEmailFunction();">Compile Email</button>
+							<br>
+							<a download="reimbursementTemplate.eml" id="reimbursementEmailTemplate" style="display: none;">Reimbursement Template</a>
+
+							<div class="materialStyleMainTextarea">
+								<textarea id="copyOutputReimbursementTextarea" class="materialStyleTextarea" style="height:200px;"></textarea>
+								<label for="copyOutputReimbursementTextarea"> Reimbursement Output: </label>
+								<button type="button" id="copyForReimbursementTextarea" class="button" style="margin-right: 50px;" onclick="copyForReimbursementTextareaFunction();">Copy</button><br>
+							</div>
+
+							<br>
+							<textarea id="emailOutputReimbursementTextarea" class="materialStyleTextarea" style="height:200px; display:none;"></textarea>
+
+
+						</div>
+						</div>
+
+			</div>
+      </div>   <!-- closing the body div for modal -->
+
+
+
+      <div class="modal-footer modalBG">
+
+        <button type="button" class="button" data-dismiss="modal">Close</button>
+
+      </div> <!-- closing the footer div for modal -->
+
+</div>
+</div>
+</div>
+
+
+
+<!-- JavaScript For Email Templates Modal-->
+<script type="text/javascript">
+
+//setting variable strings for changing based on inputs to be used in any email to a rom
+//or to include Team Lead and Supervisor mostly used in the rom and tl email
+var yourROM = "";
+var yourROMEmail = "";
+var romCCContact = "";
+var romTOContact = "";
+var tlSupEmail = "";
+
+//setting up any needed variable strings for changing based on inputs to be used in the reimbursementEmailDiv
+
+
+function emailTemplateSelectionFunction(){
+
+		if (emailTemplateSelection.value == "Select Email Type"){
+
+			romTsEmailDiv.style.display = "none";
+			reimbursementEmailDiv.style.display = "none";
+
+		}
+
+
+		// Rom and tech spec email
+		if (emailTemplateSelection.value == "ROM / TS Email"){
+
+			//displaying correct form
+			romTsEmailDiv.style.display = "inline";
+			reimbursementEmailDiv.style.display = "none";
+
+
+			//Bringing in values from main forms and setting them in this form
+			emailIssueRomTsTextarea.innerHTML = ("Escalation notes/Customer updated: " + customerTextareaIn.value + "\n \n" + "My Notes: " + agentTextareaIn.value);
+			customerNameRomTsEmailIn.value = (customerNameIn.value);
+			serviceJobRomTsEmailIn.value = (serviceJobIdIn.value);
+		}
+
+
+		//reimbursement template and email
+		if (emailTemplateSelection.value == "Reimbursement/Goodwill Template"){
+
+			reimbursementEmailDiv.style.display = "inline";
+			romTsEmailDiv.style.display = "none";
+
+			//Bringing in values from main forms and setting them in this form
+			serviceJobReimbursementIn.value = (serviceJobIdIn.value);
+			customerNameReimbursementIn.value = (customerNameIn.value);
+			customerPhoneReimbursementIn.value = (customerPhoneIn.value);
+
+			todaysDateReimbursement.value = fullDateStamp;
+
+
+		}
+	}
+
+function stateZipRomTsEmailSelectionFunction(){
+
+		var stateZipRomTsEmail = stateZipRomTsEmailSelection.options[stateZipRomTsEmailSelection.selectedIndex].value;
+
+		//Southeast and Ontario
+		if (stateZipRomTsEmail == "Florida(FL)" || stateZipRomTsEmail == "Georgia(GA)" || stateZipRomTsEmail == "South Carolina(SC)" || stateZipRomTsEmail == "North Carolina(NC)" || stateZipRomTsEmail == "Ontario(Canada)") {
+
+			//alert("help");
+			yourROM = "Brian Luppino";
+			yourROMEmail = 'brian.luppino@homeserveusa.com';
+
+			//alert(yourROM + " " + yourROMEmail);
+		}
+
+		//Mid-Atlantic region
+		if (stateZipRomTsEmail == "Virginia(VA)" || stateZipRomTsEmail == "West Virginia(WV)" || stateZipRomTsEmail == "Ohio(OH)" || stateZipRomTsEmail == "District Of Columbia(DC)" || stateZipRomTsEmail == "Maryland(MD)" || stateZipRomTsEmail == "Delaware(DE)") {
+
+			//alert("help");
+			yourROM = "Jonathan Matson";
+			yourROMEmail = 'jonathan.matson@homeserveusa.com';
+
+			//alert(yourROM + " " + yourROMEmail);
+		}
+
+		//Northeast region
+		if (stateZipRomTsEmail == "Pennsylvania(PA)" || stateZipRomTsEmail == "New York(NY)" || stateZipRomTsEmail == "New Jersey(NJ)" || stateZipRomTsEmail == "Connecticut(CT)" || stateZipRomTsEmail == "Rhode Island(RI)" || stateZipRomTsEmail == "Massachusetts(MA)" || stateZipRomTsEmail == "Vermont(VT)" || stateZipRomTsEmail == "New Hampshire(NH)" || stateZipRomTsEmail == "Maine(ME)") {
+
+			//alert("help");
+			yourROM = "Mary Michell";
+			yourROMEmail = 'mary.michell@homeserveusa.com';
+
+			//alert(yourROM + " " + yourROMEmail);
+
+		}
+
+		//River Plains region
+		if (stateZipRomTsEmail == "Mississippi(MS)" || stateZipRomTsEmail == "Alabama(AL)" || stateZipRomTsEmail == "Tennessee(TN)" || stateZipRomTsEmail == "Kentucky(KY)" || stateZipRomTsEmail == "Indiana(IN)" || stateZipRomTsEmail == "Illinois(IL)" || stateZipRomTsEmail == "Iowa(IA)" || stateZipRomTsEmail == "Wisconsin(WI)" || stateZipRomTsEmail == "Michigan(MI)") {
+
+			//alert("help");
+			yourROM = "Nick Woelfel";
+			yourROMEmail = 'nick.woelfel@homeserveusa.com';
+
+			//alert(yourROM + " " + yourROMEmail);
+
+		}
+
+		//South Central region
+		if (stateZipRomTsEmail == "Texas(TX)" || stateZipRomTsEmail == "Louisiana(LA)" || stateZipRomTsEmail == "Arkansas(AR)" || stateZipRomTsEmail == "Oklahoma(OK)" || stateZipRomTsEmail == "New Mexico(NM)") {
+
+			//alert("help");
+			yourROM = "Steven Solis";
+			yourROMEmail = 'steven.solis@homeserveusa.com';
+
+			//alert(yourROM + " " + yourROMEmail);
+
+		}
+
+		//South west region
+		if (stateZipRomTsEmail == "Arizona(AZ)" || stateZipRomTsEmail == "Utah(UT)" || stateZipRomTsEmail == "Nevada(NV)" || stateZipRomTsEmail == "California(CA)") {
+
+			//alert("help");
+			yourROM = "Nathan Shanlian";
+			yourROMEmail = 'nathan.shanlian@homeserveusa.com';
+
+			//alert(yourROM + " " + yourROMEmail);
+
+		}
+
+		//NorhtWest region
+		if (stateZipRomTsEmail == "Alberta(Canada)" || stateZipRomTsEmail == "Washington(WA)" || stateZipRomTsEmail == "Oregan(OR)" || stateZipRomTsEmail == "Idaho(ID)" || stateZipRomTsEmail == "Montana(MT)" || stateZipRomTsEmail == "Wyoming(WY)" || stateZipRomTsEmail == "Colorado(CO)" || stateZipRomTsEmail == "North Dakota(ND)" || stateZipRomTsEmail == "South Dakota(SD)" || stateZipRomTsEmail == "Nebraska(NE)" || stateZipRomTsEmail == "Kansas(KS)" || stateZipRomTsEmail == "Minnesota(MN)" || stateZipRomTsEmail == "Missouri(MO)") {
+
+			//alert("help");
+			yourROM = "Kathryn Frazier";
+			yourROMEmail = 'kathryn.frazier@homeserveusa.com';
+
+			//alert(yourROM + " " + yourROMEmail);
+
+		}
+}
+
+function compileRomTsEmailFunction(){
+
+	if (includeROMSelection.value == "CC ROM"){
+		romCCContact = (yourROM + "<" + yourROMEmail + ">; ");
+		romTOContact = "";
+	}
+	if (includeROMSelection.value == "TO ROM"){
+		romTOContact = (yourROM + "<" + yourROMEmail + ">; ");
+		romCCContact = "";
+	}
+	if (includeROMSelection.value == "Neither"){
+		romTOContact = "";
+		romCCContact = "";
+	}
+
+
+	//Yes or no to include wow TL and Sup
+
+	if (includeWowSupTlSelection.value == "Yes"){
+		tlSupEmail = ("Jade Bullard" + "<" + "jade.bullard@homeserveusa.com" + ">; " + "Chasity Gibbs" + "<" + "chasity.gibbs@homeserveusa.com" + ">; ");
+	}
+	if (includeWowSupTlSelection.value == "No"){
+		tlSupEmail = "";
+	}
+
+
+	emailOutputRomTsTextarea.innerHTML = (
+	"To: " + romTOContact + "\n" +
+	"CC: " + romCCContact + tlSupEmail +
+	'\nSubject: ' + reviewRequestSelection.value + ' / Job # ' + serviceJobRomTsEmailIn.value +
+	"\nX-Unsent: 1 " +
+	"\nContent-Type: text/html \n\n" +
+	'<html><head></head><body>' +
+	"Review Request: " + reviewRequestSelection.value + "<br><br>" +
+	"Issue: " + emailIssueRomTsTextarea.value + "<br><br>" +
+	"Customer Name: " + customerNameRomTsEmailIn.value + "<br><br>" +
+	'State/Zipcode: ' + stateZipRomTsEmailSelection.value + " " + zipcodeRomTsEmailIn.value + "<br><br>" +
+	"Contractor: " + contractorNameRomTsEmailIn.value + "<br><br>" +
+	"Service Job Id: " + serviceJobRomTsEmailIn.value + "<br><br>" +
+	'</body></html>'
+	);
+
+	var textFile = null,
+	 	makeTextFile = function (text) {
+			var data = new Blob([text], {type: 'text/plain'});
+
+		 	if (textFile !== null) {
+		  	window.URL.revokeObjectURL(textFile);
+		  }
+
+			textFile = window.URL.createObjectURL(data);
+
+			return textFile;
+ 	};
+
+	emailOutputRomTsTextarea = document.getElementById('emailOutputRomTsTextarea');
+
+	var link = document.getElementById('RomAndTSEmailTemplate');
+	link.href = makeTextFile(emailOutputRomTsTextarea.value);
+	link.style.display = 'block';
+
+	RomAndTSEmailTemplate.download = "ROM-TS-Email-" + serviceJobRomTsEmailIn.value + ".eml";
+	RomAndTSEmailTemplate.text = "ROM-TS-Email-" + serviceJobRomTsEmailIn.value + ".eml";
+
+}
+
+
+// switching over to compiling for reimbursement and good will notes
+function stateReimbursementSelectionFunction(){
+
+	var stateReimbursement = stateReimbursementSelection.options[stateReimbursementSelection.selectedIndex].value;
+
+	//Southeast and Ontario
+	if (stateReimbursement == "Florida(FL)" || stateReimbursement == "Georgia(GA)" || stateReimbursement == "South Carolina(SC)" || stateReimbursement == "North Carolina(NC)" || stateReimbursement == "Ontario(Canada)") {
+
+		//alert("help");
+		yourROM = "Brian Luppino";
+		yourROMEmail = 'brian.luppino@homeserveusa.com';
+
+		//alert(yourROM + " " + yourROMEmail);
+	}
+
+	//Mid-Atlantic region
+	if (stateReimbursement == "Virginia(VA)" || stateReimbursement == "West Virginia(WV)" || stateReimbursement == "Ohio(OH)" || stateReimbursement == "District Of Columbia(DC)" || stateReimbursement == "Maryland(MD)" || stateReimbursement == "Delaware(DE)") {
+
+		//alert("help");
+		yourROM = "Jonathan Matson";
+		yourROMEmail = 'jonathan.matson@homeserveusa.com';
+
+		//alert(yourROM + " " + yourROMEmail);
+	}
+
+	//Northeast region
+	if (stateReimbursement == "Pennsylvania(PA)" || stateReimbursement == "New York(NY)" || stateReimbursement == "New Jersey(NJ)" || stateReimbursement == "Connecticut(CT)" || stateReimbursement == "Rhode Island(RI)" || stateReimbursement == "Massachusetts(MA)" || stateReimbursement == "Vermont(VT)" || stateReimbursement == "New Hampshire(NH)" || stateReimbursement == "Maine(ME)") {
+
+		//alert("help");
+		yourROM = "Mary Michell";
+		yourROMEmail = 'mary.michell@homeserveusa.com';
+
+		//alert(yourROM + " " + yourROMEmail);
+
+	}
+
+	//River Plains region
+	if (stateReimbursement == "Mississippi(MS)" || stateReimbursement == "Alabama(AL)" || stateReimbursement == "Tennessee(TN)" || stateReimbursement == "Kentucky(KY)" || stateReimbursement == "Indiana(IN)" || stateReimbursement == "Illinois(IL)" || stateReimbursement == "Iowa(IA)" || stateReimbursement == "Wisconsin(WI)" || stateReimbursement == "Michigan(MI)") {
+
+		//alert("help");
+		yourROM = "Nick Woelfel";
+		yourROMEmail = 'nick.woelfel@homeserveusa.com';
+
+		//alert(yourROM + " " + yourROMEmail);
+
+	}
+
+	//South Central region
+	if (stateReimbursement == "Texas(TX)" || stateReimbursement == "Louisiana(LA)" || stateReimbursement == "Arkansas(AR)" || stateReimbursement == "Oklahoma(OK)" || stateReimbursement == "New Mexico(NM)") {
+
+		//alert("help");
+		yourROM = "Steven Solis";
+		yourROMEmail = 'steven.solis@homeserveusa.com';
+
+		//alert(yourROM + " " + yourROMEmail);
+
+	}
+
+	//South west region
+	if (stateReimbursement == "Arizona(AZ)" || stateReimbursement == "Utah(UT)" || stateReimbursement == "Nevada(NV)" || stateReimbursement == "California(CA)") {
+
+		//alert("help");
+		yourROM = "Nathan Shanlian";
+		yourROMEmail = 'nathan.shanlian@homeserveusa.com';
+
+		//alert(yourROM + " " + yourROMEmail);
+
+	}
+
+	//NorhtWest region
+	if (stateReimbursement == "Alberta(Canada)" || stateReimbursement == "Washington(WA)" || stateReimbursement == "Oregan(OR)" || stateReimbursement == "Idaho(ID)" || stateReimbursement == "Montana(MT)" || stateReimbursement == "Wyoming(WY)" || stateReimbursement == "Colorado(CO)" || stateReimbursement == "North Dakota(ND)" || stateReimbursement == "South Dakota(SD)" || stateReimbursement == "Nebraska(NE)" || stateReimbursement == "Kansas(KS)" || stateReimbursement == "Minnesota(MN)" || stateReimbursement == "Missouri(MO)") {
+
+		//alert("help");
+		yourROM = "Kathryn Frazier";
+		yourROMEmail = 'kathryn.frazier@homeserveusa.com';
+
+		//alert(yourROM + " " + yourROMEmail);
+
+	}
+
+	romTerritoryReimbursement.value = yourROM;
+
+}
+
+function compileReimbursementEmailFunction(){
+
+	if (includeROMReimbursementSelection.value == "CC ROM"){
+		romCCContact = (yourROM + "<" + yourROMEmail + ">; ");
+		romTOContact = "";
+	}
+	if (includeROMReimbursementSelection.value == "TO ROM"){
+		romTOContact = (yourROM + "<" + yourROMEmail + ">; ");
+		romCCContact = "";
+	}
+	if (includeROMReimbursementSelection.value == "Neither"){
+		romTOContact = "";
+		romCCContact = "";
+	}
+
+	//Yes or no to include wow TL and Sup
+
+	if (includeWowSupTlReimbursementSelection.value == "Yes"){
+		tlSupEmail = ("Jade Bullard" + "<" + "jade.bullard@homeserveusa.com" + ">; " + "Chasity Gibbs" + "<" + "chasity.gibbs@homeserveusa.com" + ">; ");
+	}
+	if (includeWowSupTlReimbursementSelection.value == "No"){
+		tlSupEmail = "";
+	}
+
+
+	emailOutputReimbursementTextarea.innerHTML = (
+	"To: " + romTOContact + "Reimbursements" + "<reimbursement@homeserveusa.com>; " + "\n" +
+	"CC: " + romCCContact + tlSupEmail +
+	'\nSubject: ' + reimbursementGoodwillSelection.value + ' / Job # ' + serviceJobReimbursementIn.value +
+	"\nX-Unsent: 1 " +
+	"\nContent-Type: text/html \n\n" +
+	'<html><head></head><body>' +
+
+	"Job Number #: " + serviceJobReimbursementIn.value + "<br><br>" +
+
+	"Customer Phone Number: " + customerPhoneReimbursementIn.value + "<br><br>" +
+
+	"Type: " + reimbursementGoodwillSelection.value + "<br><br>" +
+
+	"Reason: " + reasonRequestedReimbursementIn.value + "<br>" +
+	"Requested Amount: " + requestedAmountReimbursementIn.value + "<br>" +
+	"Approved Amount: " + approvedAmountReimbursementIn.value + "<br><br>" +
+
+	"Customer Name: " + customerNameReimbursementIn.value + "<br>" +
+	"Customer Mailing Address: " + customerAddressReimbursementIn.value + "<br>" +
+	"Contract Number: " + contractNumberReimbursementIn.value + "<br><br>" +
+
+	"Partner: " + partnerReimbursementIn.value + "<br>" +
+	"Product: " + productReimbursementIn.value + "<br>" +
+	"ROM Territory: " + romTerritoryReimbursement.value + "<br><br>" +
+
+	"Date of Repair: " + repairDateReimbursement.value + "<br>" +
+	"Todays Date/Date of Request: " + todaysDateReimbursement.value + "<br>" +
+	"Shipping Method Requested: " + shippingTypeSelection.value + "<br><br>" +
+
+	"Submitted by: " + agentIdIn.value + "<br>" +
+	"Approved by: " + agentIdIn.value + "<br><br>" +
+	'</body></html>'
+	);
+
+
+	//this is for the copy version
+	copyOutputReimbursementTextarea.innerHTML = (
+	"Job Number #: " + serviceJobReimbursementIn.value + "\n\n" +
+
+	"Customer Phone Number: " + customerPhoneReimbursementIn.value + "\n\n" +
+
+	"Type: " + reimbursementGoodwillSelection.value + "\n\n" +
+
+	"Reason: " + reasonRequestedReimbursementIn.value + "\n" +
+	"Requested Amount: " + requestedAmountReimbursementIn.value + "\n" +
+	"Approved Amount: " + approvedAmountReimbursementIn.value + "\n\n" +
+
+	"Customer Name: " + customerNameReimbursementIn.value + "\n" +
+	"Customer Mailing Address: " + customerAddressReimbursementIn.value + "\n" +
+	"Contract Number: " + contractNumberReimbursementIn.value + "\n\n" +
+
+	"Parner: " + partnerReimbursementIn.value + "\n" +
+	"Product: " + productReimbursementIn.value + "\n" +
+	"ROM Territory: " + romTerritoryReimbursement.value + "\n\n" +
+
+	"Date of Repair: " + repairDateReimbursement.value + "\n" +
+	"Todays Date/Date of Request: " + todaysDateReimbursement.value + "\n" +
+	"Shipping Method Requested: " + shippingTypeSelection.value + "\n\n" +
+
+	"Sumbitted by: " + agentIdIn.value + "\n" +
+	"Approved by: " + agentIdIn.value + "\n\n"
+	);
+
+
+
+
+	var reimbursementFile = null,
+	 	makeTextFile = function (text) {
+			var data = new Blob([text], {type: 'text/plain'});
+
+		 	if (reimbursementFile !== null) {
+		  	window.URL.revokeObjectURL(reimbursementFile);
+		  }
+
+			reimbursementFile = window.URL.createObjectURL(data);
+
+			return reimbursementFile;
+ 	};
+
+	emailOutputReimbursementTextarea = document.getElementById('emailOutputReimbursementTextarea');
+
+	var link = document.getElementById('reimbursementEmailTemplate');
+
+	link.href = makeTextFile(emailOutputReimbursementTextarea.value);
+	link.style.display = 'block';
+
+	reimbursementEmailTemplate.download = (reimbursementGoodwillSelection.value + '-Job-Number-' + serviceJobReimbursementIn.value + ".eml");
+	reimbursementEmailTemplate.text = (reimbursementGoodwillSelection.value + '-Job-Number-' + serviceJobReimbursementIn.value + ".eml");
+
+}
+
+function copyForReimbursementTextareaFunction(){
+	copyOutputReimbursementTextarea.select();
+	document.execCommand("copy");
+}
+
+
+</script>
+<!-- End JavaScript -->
+
+
+
+
+
+
+<!-- *************************************  Snippet Modal *********************************************************** -->
+
+
+<div class="modal fade" id="snipetModal" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+<div class="modal-content">
+
+  <div class="modal-header modalBG">
+
+    <h5 class="modal-title" id="staticBackdropLabel">Snipet Tool</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      	<span aria-hidden="true">&times;</span>
+      </button>
+
+  </div>   <!-- closing the header div for modal -->
+
+  <div class="modal-body">
+		<div class="modalCenter">
+
+				<button id="dropdownIconDown" class="button" style="display: none;">Hide Explanation
+					<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
+					</svg>
+				</button>
+
+				<button id="dropdownIconUp" class="button">Show Explanation
+					<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z"/>
+					</svg>
+				</button>
+
+			<div id="explanationDiv" style="display: none;">
+
+				<h5><u>How Snipets work:</u></h5>
+				<br>
+				Snipets are simply shortcuts, very similar to auto correct that allows you to input anything of your choice and then automatically correct it to a word or phrase of your choice. For now I have built in the option for 10 saved snipets and once you create one it will create a new empty box for another snipet.
+				<br><br>
+				<u><h5>Some snipet examples: </h5></u>
+				<br>
+				These are already built in,<br>
+				When you type /phone it will automatically be replaced with what ever number you have in the customer phone # input<br>
+				<br>
+				if your type customer in either issue box it will correct to the name you have in the customer name input, as well as correct the name to the initals break down in the knack output box<br>
+				<br>
+				/call will correct to<br>
+				Calling customer Phone #: /phone<br>
+				which will then breakdown further into the other break downs listed above<br>
+				<br>
+				/contact<br>
+				will correct to Left Phone# for Wow team 1-833-334-1877 and my extension 6165<br>
+				<br>
+				You can make then as complicated or as simple as you need. Something to keep in mind is that if the snipet to search for is too similar to another it will not work for example if you made one that was /contact2 it would never work as it will always find /contact first and will register it as the snipet before you ever press the 2 key. In this example i would suggest something like /cont2 or maybe /mycontact
+
+			</div>
+
+			<div id="snipetDiv1">
+				<br>
+				<div class="materialStyleMainInput">
+					<input type="text" id="snipetSearch1" class="materialStyleInput" onkeyup="saveConstants(); + loadSnipetDisplayFunction();" required>
+			   	<label for="snipetSearch1">Word/Phrase to search for:</label>
+				</div>
+				<br>
+				<div class="materialStyleMainTextarea">
+					<textarea id="snipetReplace1" class="materialStyleTextarea" onkeyup="saveConstants(); + loadSnipetDisplayFunction();" required></textarea>
+					<label for="snipetReplace1">Word/phrase to replace</label>
+				</div>
+			</div>
+
+			<div id="snipetDiv2" style="display: none;">
+				<br>
+				<div class="materialStyleMainInput">
+					<input type="text" id="snipetSearch2" class="materialStyleInput"  onkeyup="saveConstants(); + loadSnipetDisplayFunction();" required>
+			   	<label for="snipetSearch2">Word/Phrase to search for:</label>
+				</div>
+				<br>
+				<div class="materialStyleMainTextarea">
+					<textarea id="snipetReplace2" class="materialStyleTextarea" onkeyup="saveConstants(); + loadSnipetDisplayFunction();" required></textarea>
+					<label for="snipetReplace2">Word/phrase to replace</label>
+				</div>
+			</div>
+
+			<div id="snipetDiv3" style="display: none;">
+				<br>
+				<div class="materialStyleMainInput">
+					<input type="text" id="snipetSearch3" class="materialStyleInput"  onkeyup="saveConstants(); + loadSnipetDisplayFunction();" required>
+			   	<label for="snipetSearch3">Word/Phrase to search for:</label>
+				</div>
+				<br>
+				<div class="materialStyleMainTextarea">
+					<textarea id="snipetReplace3" class="materialStyleTextarea" onkeyup="saveConstants(); + loadSnipetDisplayFunction();" required></textarea>
+					<label for="snipetReplace3">Word/phrase to replace</label>
+				</div>
+			</div>
+
+			<div id="snipetDiv4" style="display: none;">
+				<br>
+				<div class="materialStyleMainInput">
+					<input type="text" id="snipetSearch4" class="materialStyleInput"  onkeyup="saveConstants(); + loadSnipetDisplayFunction();" required>
+					<label for="snipetSearch4">Word/Phrase to search for:</label>
+				</div>
+				<br>
+				<div class="materialStyleMainTextarea">
+					<textarea id="snipetReplace4" class="materialStyleTextarea" onkeyup="saveConstants(); + loadSnipetDisplayFunction();" required></textarea>
+					<label for="snipetReplace4">Word/phrase to replace</label>
+				</div>
+			</div>
+
+			<br>
+			<button type="button" class="button" data-dismiss="modal" onclick="clearSnipetsFunction(); + saveSnipetValuesFunction(); + loadSnipetDisplayFunction();">Clear</button>
+			<br>
+
+		</div>
+  </div>   <!-- closing the body div for modal -->
+
+      <div class="modal-footer modalBG">
+
+        <button type="button" class="button" data-dismiss="modal">Close</button>
+
+      </div> <!-- closing the footer div for modal -->
+
+</div>
+</div>
+</div>
+<!-- Trace and replace modal End -->
+
+
+<!-- JavaScript For Snipet tool Modal-->
+<script type="text/javascript">
+
+(function () {
+	dropdownIconDown.addEventListener('click', function () {
+
+		explanationDiv.style.display = "none";
+		dropdownIconUp.style.display = "block";
+		dropdownIconDown.style.display = "none";
+
+	}, false);
+
+	dropdownIconUp.addEventListener('click', function () {
+
+		explanationDiv.style.display = "block";
+		dropdownIconUp.style.display = "none";
+		dropdownIconDown.style.display = "block";
+
+	}, false);
+
+})();
+
+function snipetModalFunction(){
+
+	var snipetSearch1Var = new RegExp(snipetSearch1.value,"gi");
+	var snipetSearch2Var = new RegExp(snipetSearch2.value,"gi");
+	var snipetSearch3Var = new RegExp(snipetSearch3.value,"gi");
+	var snipetSearch4Var = new RegExp(snipetSearch4.value,"gi");
+
+	if(snipetSearch1Var == "/(?:)/gi"){
+		// this is checking to make sure that the field is not blank and if not it will run the replace function
+	} else{
+		customerTextareaIn.value = customerTextareaIn.value.replace(snipetSearch1Var, snipetReplace1.value);
+		agentTextareaIn.value = agentTextareaIn.value.replace(snipetSearch1Var, snipetReplace1.value);
+	}
+
+	if(snipetSearch2Var == "/(?:)/gi"){
+		// this is checking to make sure that the field is not blank and if not it will run the replace function
+	} else{
+		customerTextareaIn.value = customerTextareaIn.value.replace(snipetSearch2Var, snipetReplace2.value);
+		agentTextareaIn.value = agentTextareaIn.value.replace(snipetSearch2Var, snipetReplace2.value);
+	}
+
+	if(snipetSearch3Var == "/(?:)/gi"){
+		// this is checking to make sure that the field is not blank and if not it will run the replace function
+	} else{
+		customerTextareaIn.value = customerTextareaIn.value.replace(snipetSearch3Var, snipetReplace3.value);
+		agentTextareaIn.value = agentTextareaIn.value.replace(snipetSearch3Var, snipetReplace3.value);
+	}
+
+	if(snipetSearch4Var == "/(?:)/gi"){
+		// this is checking to make sure that the field is not blank and if not it will run the replace function
+	} else{
+		customerTextareaIn.value = customerTextareaIn.value.replace(snipetSearch4Var, snipetReplace4.value);
+		agentTextareaIn.value = agentTextareaIn.value.replace(snipetSearch4Var, snipetReplace4.value);
+	}
+
+}
+
+function saveSnipetValuesFunction(){
+
+	localStorage.setItem('savedSnipetSearch1', snipetSearch1.value);
+	localStorage.setItem('savedSnipetReplace1', snipetReplace1.value);
+
+	localStorage.setItem('savedSnipetSearch2', snipetSearch2.value);
+	localStorage.setItem('savedSnipetReplace2', snipetReplace2.value);
+
+	localStorage.setItem('savedSnipetSearch3', snipetSearch3.value);
+	localStorage.setItem('savedSnipetReplace3', snipetReplace3.value);
+
+	localStorage.setItem('savedSnipetSearch4', snipetSearch4.value);
+	localStorage.setItem('savedSnipetReplace4', snipetReplace4.value);
+}
+
+function loadSnipetValuesFunction(){
+
+	snipetSearch1.value = localStorage.getItem('savedSnipetSearch1');
+	snipetReplace1.value = localStorage.getItem('savedSnipetReplace1');
+
+	snipetSearch2.value = localStorage.getItem('savedSnipetSearch2');
+	snipetReplace2.value = localStorage.getItem('savedSnipetReplace2');
+
+	snipetSearch3.value = localStorage.getItem('savedSnipetSearch3');
+	snipetReplace3.value = localStorage.getItem('savedSnipetReplace3');
+
+	snipetSearch4.value = localStorage.getItem('savedSnipetSearch4');
+	snipetReplace4.value = localStorage.getItem('savedSnipetReplace4');
+}
+
+function loadSnipetDisplayFunction(){
+
+
+	if(snipetSearch1.value == ""){
+		snipetDiv2.style.display = "none";
+	} else {
+		snipetDiv2.style.display = "block";
+	}
+
+	if(snipetSearch2.value == ""){
+		snipetDiv3.style.display = "none";
+	} else {
+		snipetDiv3.style.display = "block";
+	}
+
+	if(snipetSearch3.value == ""){
+		snipetDiv4.style.display = "none";
+	} else {
+		snipetDiv4.style.display = "block";
+	}
+
+}
+
+
+function clearSnipetsFunction(){
+
+	snipetSearch1.value = "";
+	snipetReplace1.value = "";
+
+	snipetSearch2.value = "";
+	snipetReplace2.value = "";
+
+	snipetSearch3.value = "";
+	snipetReplace3.value = "";
+
+	snipetSearch4.value = "";
+	snipetReplace4.value = "";
+
+}
+
+
+</script>
+<!-- Ending Snipet Modal JS-->
+
+
+<!-- Outside resources -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</html>
