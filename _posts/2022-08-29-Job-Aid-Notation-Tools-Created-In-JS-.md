@@ -1,7 +1,15 @@
 ---
 title:  "Filling productivity gaps with custom JavaScript job aid"
 layout: post
-categories: coding javascript portfolio
+categories: coding javascript jsportfolio notationtool
 ---
 
-# https://www.markdownguide.org/extended-syntax/#overview
+
+
+
+## Code Highlights
+
+{% highlight c %}
+
+
+{% endhighlight %}
