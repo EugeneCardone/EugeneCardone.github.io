@@ -1,8 +1,10 @@
 ---
+title:  "Navigation Bar"
 layout: post
-title: You're up and running!
-published: true
-series: "Intro to Series"
+categories: javascript notationtool
+series: "Notation Tool"
 ---
- 
+
+## Project Introduction
+
 {% include series.html %}
