@@ -33,4 +33,4 @@ Though simple, the tool at the time of writing is used by me and a decent number
 {% endhighlight %}
 
 
-[Notation-Tool]: [http://jekyllrb.com/docs/home](https://eugenecardone.github.io/WOWNT_V_1.0EC.html)
+[Notation-Tool]: [https://eugenecardone.github.io/WOWNT_V_1.0EC.html]
