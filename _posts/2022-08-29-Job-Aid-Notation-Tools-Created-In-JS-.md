@@ -2,9 +2,13 @@
 title:  "Filling productivity gaps with JavaScript based job aid"
 layout: post
 categories: javascript notationtool
+series: "Notation Tool"
 ---
 
 ## Project Introduction
+
+{% include series.html %}
+
 
 ## Notation Tool
 
