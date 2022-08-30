@@ -15,12 +15,11 @@ The small program I created was made to be run just from a single html file to r
 
 Though simple, the tool at the time of writing is used by me and a decent number of agents that like the formatting and flow of the tool. In this series of posts, I will document some of the code that helped make this happen, mainly for me to look back on when making improvements as well as a sort of repository for reusable features of the tool.  
 
-{% include series.html %}
-
 
 ## Notation Tool
-
 https://eugenecardone.github.io/WOWNT_V_1.0EC.html
+
+{% include series.html %}
 
 
 ## Code Highlights
