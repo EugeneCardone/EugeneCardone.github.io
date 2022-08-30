@@ -1,8 +1,10 @@
 ---
 title:  "Filling productivity gaps with JavaScript based job aid"
 layout: post
-categories: coding javascript jsportfolio notationtool
+categories: javascript notationtool
 ---
+
+## Project Introduction
 
 ## Notation Tool
 
